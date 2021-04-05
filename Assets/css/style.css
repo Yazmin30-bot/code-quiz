@@ -1,0 +1,59 @@
+main{
+    position: absolute;
+    width: 50%;
+    left: 25%;
+    right: 30%;
+    height: 50%;
+    
+    
+}
+
+.btn{
+    background-color: rgb(70, 0, 128);
+    color: white;
+    border-radius: 10px;
+    width:fit-content;
+    height: 1.8rem;
+}
+
+.inline{
+    display: inline-block;
+}
+
+#right{
+    position: absolute;
+    top: 0;
+    right: 10px; 
+}
+
+li{
+   list-style-type: none;
+   height: fit-content;
+   
+   
+}
+
+ul:before{
+    content:attr(aria-label);
+    font-size: 140%;
+    font-weight:bold;
+    margin-left:-15px;
+    
+    
+}
+
+p{
+    font-size: 1.5rem;
+}
+
+#result{
+    position: relative;
+    top:30%;
+    left: 28%;
+}
+
+
+#highscores{
+    background-color: transparent;
+    border: none;
+}
