@@ -145,13 +145,13 @@ function showQuestion() {
                     answer = "Wrong";
                     secondsLeft -= 10;
                 }
-                //result(answer);
+                result(answer);
                 clearAll(parentEl);
                 indexQuestion++;
                 showQuestion();
                 localStorage.setItem("remain", 0);
             } else {
-                //result(answer);
+                result(answer);
                 clearAll(parentEl);
                 remainigtime = secondsLeft;
                 localStorage.setItem("remain", remainigtime);
@@ -161,4 +161,28 @@ function showQuestion() {
         });
         
     }
+};
+
+//Show if you answer was wrong or correct with sound
+function result(answer) {
+    var answerResult = document.getElementById('result');
+    if (answer === 'Correct') {
+        numAnswer = numAnswer + 1;
+        myStorage = localStorage.setItem('myCat', numAnswer);
+        answerResult.style.color = 'grey';
+        mySound.play();
+        mySound.currentTime = 0;
+
+        setTimeout(function () {
+            answerResult.textContent = ''
+        }, 500)
+    } else {
+        answerResult.style.color = 'grey'
+        mySoundWrong.play();
+        mySoundWrong.currentTime = 0;
+        setTimeout(function () {
+            answerResult.textContent = ''
+        }, 500)
+    }
+    answerResult.textContent = answer;
 };
