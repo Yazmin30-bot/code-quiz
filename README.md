@@ -1,4 +1,3 @@
-# code-quiz
 # <Code Quiz>
 ## Description
 At some point in your journey to become a full-stack web developer, you’ll likely be asked to complete a coding assessment&mdash;perhaps as part of an interview process. A typical coding assessment includes both multiple-choice questions and interactive coding challenges. 
@@ -15,6 +14,11 @@ This proyect  requires no modules outside of the core.
 
 * Go to Git-bash and page the github's with the following code `$ git clone https://github.com/Yazmin30-bot/code-quiz.git ` ![Git-bash commands to clone .](./Assets/images/git-bash-clone.png)
 
+## Mock-Up
+
+The following animation demonstrates the application functionality:
+
+![A user clicks through an interactive coding quiz, then enters initials to save the high score before resetting and starting over.](./Assets/images/Coding-Quiz.gif)
 
 ## Links
 * The URL of the deployed application.

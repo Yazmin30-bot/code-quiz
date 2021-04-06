@@ -30,7 +30,7 @@ if (retrievedObject != null) {
     for (let i = 0; i < retrievedObject.length; i++) {
         //Show all the entries on the page 
         var li = document.createElement("li");
-        li.textContent = (i + 1) + ".-" + retrievedObject[i].init + "--" + retrievedObject[i].sco;
+        li.textContent = (i + 1) + ".- " + retrievedObject[i].init + " -- " + retrievedObject[i].sco;
         list.appendChild(li);
 
     }
