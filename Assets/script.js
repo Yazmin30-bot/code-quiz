@@ -79,7 +79,7 @@ if (URLactual.includes("index.html")) {
     startGame(btnStart);
     //When I click on the View Highscores button, It Switch to Highscores page
     btnhighscores.addEventListener("click", function () {
-        location.assign('./Assets/highscores.html');
+        location.assign('Assets/highscores.html');
         URLactual = location.pathname;
     });
 };
@@ -237,7 +237,7 @@ function finalResult() {
             alert("Initials cannot be blank");
         } else {
             userResult();
-            location.assign('./Assets/highscores.html');
+            location.assign('Assets/highscores.html');
 
             
         }
