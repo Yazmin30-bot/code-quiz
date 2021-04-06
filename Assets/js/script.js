@@ -92,7 +92,7 @@ function startGame() {
         // Sets interval in variable
         setTime();
         clearAll(parentEl);
-        //showQuestion();
+        showQuestion();
         
     });
 };
@@ -116,5 +116,49 @@ function setTime() {
 function clearAll(parent) {
     while (parent.firstChild) {
         parent.removeChild(parent.firstChild);
+    }
+};
+
+//Show the question and its answers
+function showQuestion() {
+    var newQuestion = document.createElement("ul");
+    parentEl.appendChild(newQuestion);
+    var linebreak = document.createElement('br');
+    newQuestion.appendChild(linebreak);
+    newQuestion.setAttribute("aria-label", myQuestions[indexQuestion].textQuestion);
+    for (let j = 0; j < 4; j++) {
+        var liEl = document.createElement("li");
+        newQuestion.appendChild(liEl);
+        x = document.createElement("input");
+        x.setAttribute("type", "button");
+        x.className = "btn";
+        x.id = "ans" + (j + 1);
+        liEl.appendChild(x);
+        x.value = myQuestions[indexQuestion].answers[j + 1];
+        var clickEl = document.getElementById("ans" + (j + 1));
+        clickEl.addEventListener("click", (event) => {
+            var userAnswer = event.target.value
+            if (indexQuestion < 4) {
+                if (userAnswer === myQuestions[indexQuestion].correctAnswer) {
+                    answer = "Correct";
+                } else {
+                    answer = "Wrong";
+                    secondsLeft -= 10;
+                }
+                //result(answer);
+                clearAll(parentEl);
+                indexQuestion++;
+                showQuestion();
+                localStorage.setItem("remain", 0);
+            } else {
+                //result(answer);
+                clearAll(parentEl);
+                remainigtime = secondsLeft;
+                localStorage.setItem("remain", remainigtime);
+                secondsLeft = 0;
+                
+            }
+        });
+        
     }
 };
