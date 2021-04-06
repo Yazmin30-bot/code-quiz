@@ -5,7 +5,7 @@ var list = document.getElementById("todo-list");
 //When I click on the Go back button, It Switch to index page
 if (URLactual.includes("highscores.html")) {
     btngoBack.addEventListener("click", function () {
-        location.assign('./index.html');
+        location.assign('../index.html');
 
     });
 };
