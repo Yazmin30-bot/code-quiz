@@ -99,7 +99,7 @@ function startGame() {
 
 //Initilize the localStorage Variables
 function initStorage() {
-    localStorage.setItem("myCat",0);
+    localStorage.setItem("numCorrectAnswer",0);
     localStorage.setItem("score",0);
     localStorage.setItem("initials","");
     
@@ -152,7 +152,7 @@ function showQuestion() {
                     answer = "Wrong";
                     secondsLeft -= 10;
                 }
-                result(answer);
+                correctWrong(answer);
                 clearAll(parentEl);
                 indexQuestion++;
                 showQuestion();
@@ -164,7 +164,7 @@ function showQuestion() {
                     answer = "Wrong";
                     secondsLeft -= 10;
                 }
-                result(answer);
+                correctWrong(answer);
                 clearAll(parentEl);
                 remainigtime = secondsLeft;
                 localStorage.setItem("remain", remainigtime);
@@ -177,11 +177,11 @@ function showQuestion() {
 };
 
 //Show if you answer was wrong or correct with sound
-function result(answer) {
+function correctWrong(answer) {
     var answerResult = document.getElementById('result');
     if (answer === 'Correct') {
         numAnswer = numAnswer + 1;
-        myStorage = localStorage.setItem('myCat', numAnswer);
+        myStorage = localStorage.setItem('numCorrectAnswer', numAnswer);
         answerResult.style.color = 'grey';
         mySound.play();
         mySound.currentTime = 0;
@@ -201,10 +201,10 @@ function result(answer) {
 };
 
 //Calculate the score
-function punctuation() {
+function calculateScore() {
     var rt = localStorage.getItem("remain");
     if (rt > 0  ) {
-        cat = localStorage.getItem('myCat');
+        cat = localStorage.getItem('numCorrectAnswer');
         //console.log(cat * 2);
         return parseInt(cat) * 2;
         
@@ -225,7 +225,7 @@ function finalResult() {
     var finalScoreResult = document.createElement("span");
     finalScoreResult.id = "score";
     finalScore.appendChild(finalScoreResult);
-    finalScoreResult.textContent = punctuation();
+    finalScoreResult.textContent = calculateScore();
 
     var submitelement = createForm(parentEl);
 
@@ -236,7 +236,7 @@ function finalResult() {
         if (initials === "") {
             alert("Initials cannot be blank");
         } else {
-            //userResult();
+            userResult();
             location.assign('./highscores.html');
 
             
@@ -269,4 +269,27 @@ function createForm(parentEl) {
     submitelement.setAttribute("value", "Submit");
     createform.appendChild(submitelement);
     return submitelement;
+};
+
+//Save the new info about score and initials in an array
+function userResult() {
+    // Parse any JSON previously stored in allEntries
+    var existingEntries = JSON.parse(localStorage.getItem("allEntries"));
+    if(existingEntries == null) existingEntries = [];
+
+    var initials = document.querySelector("#initials").value;
+    localStorage.setItem("score", calculateScore());
+    localStorage.setItem("initials", initials);
+    var user = {
+        init : localStorage.getItem("initials"),
+        sco : localStorage.getItem("score"),
+    }
+
+    localStorage.setItem("user", JSON.stringify(user));
+    // Save allEntries back to local storage
+    existingEntries.push(user);
+    localStorage.setItem("allEntries", JSON.stringify(existingEntries));
+
+    
+  
 };
