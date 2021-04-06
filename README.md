@@ -14,6 +14,10 @@ This proyect  requires no modules outside of the core.
 
 * Go to Git-bash and page the github's with the following code `$ git clone https://github.com/Yazmin30-bot/code-quiz.git ` ![Git-bash commands to clone .](./Assets/images/git-bash-clone.png)
 
+* Note
+
+DevTools failed to load SourceMap: Could not load content for chrome-extension://ljngjbnaijcbncmcnjfhigebomdlkcjo/content-script/browser-polyfill.min.js.map: HTTP error: status code 404, net::ERR_UNKNOWN_URL_SCHEME
+
 ## Mock-Up
 
 The following animation demonstrates the application functionality:
