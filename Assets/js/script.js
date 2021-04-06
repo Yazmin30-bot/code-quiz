@@ -3,7 +3,7 @@ var btnhighscores = document.getElementById("highscores");
 var timeEl = document.getElementById("time");
 var parentEl = document.getElementById("questions");
 var score = 100;
-var secondsLeft = 60;
+var secondsLeft = 40;
 var userAnswer;
 var indexQuestion = 0;
 var answer;
@@ -87,7 +87,7 @@ if (URLactual.includes("index.html")) {
 //When I click on the start button, It starts the test
 function startGame() {
     btnStart.addEventListener("click", function () {
-        //initStorage()
+        initStorage()
         numAnswer = 0;
         // Sets interval in variable
         setTime();
@@ -97,6 +97,13 @@ function startGame() {
     });
 };
 
+//Initilize the localStorage Variables
+function initStorage() {
+    localStorage.setItem("myCat",0);
+    localStorage.setItem("score",0);
+    localStorage.setItem("initials","");
+    
+}
 //Seconds remaining and Sets interval in time variable
 function setTime() {
     //console.log(secondsLeft);
@@ -107,7 +114,7 @@ function setTime() {
             // Stops execution of action at set interval
             clearInterval(timerInterval);
             clearAll(parentEl);
-            //finalResult();
+            finalResult();
         }
 
     }, 1000);
@@ -151,6 +158,12 @@ function showQuestion() {
                 showQuestion();
                 localStorage.setItem("remain", 0);
             } else {
+                if (userAnswer === myQuestions[indexQuestion].correctAnswer) {
+                    answer = "Correct";
+                } else {
+                    answer = "Wrong";
+                    secondsLeft -= 10;
+                }
                 result(answer);
                 clearAll(parentEl);
                 remainigtime = secondsLeft;
@@ -185,4 +198,75 @@ function result(answer) {
         }, 500)
     }
     answerResult.textContent = answer;
+};
+
+//Calculate the score
+function punctuation() {
+    var rt = localStorage.getItem("remain");
+    if (rt > 0  ) {
+        cat = localStorage.getItem('myCat');
+        //console.log(cat * 2);
+        return parseInt(cat) * 2;
+        
+    } else {
+        return 0;
+    }
+};
+
+//Show your score that you got
+function finalResult() {
+   
+    var done = document.createElement("p");
+    parentEl.appendChild(done);
+    done.textContent = "All done!";
+    var finalScore = document.createElement("p");
+    parentEl.appendChild(finalScore);
+    finalScore.textContent = "Your final score is: ";
+    var finalScoreResult = document.createElement("span");
+    finalScoreResult.id = "score";
+    finalScore.appendChild(finalScoreResult);
+    finalScoreResult.textContent = punctuation();
+
+    var submitelement = createForm(parentEl);
+
+    // Add submit event to form
+    submitelement.addEventListener("click", function (event) {
+        event.preventDefault();
+        var initials = document.querySelector("#initials").value;
+        if (initials === "") {
+            alert("Initials cannot be blank");
+        } else {
+            //userResult();
+            location.assign('./highscores.html');
+
+            
+        }
+
+    });
+
+
+};
+
+//Create a form to give your initials
+function createForm(parentEl) {
+    //Create a form to 
+    var createform = document.createElement('form'); // Create New Element Form
+    createform.setAttribute("action", ""); // Setting Action Attribute on Form
+    createform.setAttribute("method", "post"); // Setting Method Attribute on Form
+    parentEl.appendChild(createform);
+    var namelabel = document.createElement('label'); // Create Label for Name Field
+    namelabel.innerHTML = "Enter initials : "; // Set Field Labels
+    createform.appendChild(namelabel);
+    var inputelement = document.createElement('input'); // Create Input Field for Name
+    inputelement.id = "initials";
+    inputelement.setAttribute("type", "text");
+    inputelement.setAttribute("name", "dinitials");
+    createform.appendChild(inputelement);
+    var submitelement = document.createElement('input'); // Append Submit Button
+    submitelement.className = "btn";
+    submitelement.setAttribute("type", "submit");
+    submitelement.setAttribute("name", "dsubmit");
+    submitelement.setAttribute("value", "Submit");
+    createform.appendChild(submitelement);
+    return submitelement;
 };
