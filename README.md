@@ -30,3 +30,8 @@ The following animation demonstrates the application functionality:
 
 * The URL of the GitHub repository
 [https://github.com/Yazmin30-bot/code-quiz/](https://github.com/Yazmin30-bot/code-quiz/)
+
+
+---
+permalink: /index.html
+---
