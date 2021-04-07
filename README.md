@@ -14,9 +14,12 @@ This proyect  requires no modules outside of the core.
 
 * Go to Git-bash and page the github's with the following code `$ git clone https://github.com/Yazmin30-bot/code-quiz.git ` ![Git-bash commands to clone .](./Assets/images/git-bash-clone.png)
 
-* Note
+### Note
 
-DevTools failed to load SourceMap: Could not load content for chrome-extension://ljngjbnaijcbncmcnjfhigebomdlkcjo/content-script/browser-polyfill.min.js.map: HTTP error: status code 404, net::ERR_UNKNOWN_URL_SCHEME
+* If you use the web page link from the github make sure to add the final index.html
+https://yazmin30-bot.github.io/code-quiz/index.html
+![Error on gibhub .](./Assets/images/error.png)
+
 
 ## Mock-Up
 
@@ -26,7 +29,7 @@ The following animation demonstrates the application functionality:
 
 ## Links
 * The URL of the deployed application.
-[https://yazmin30-bot.github.io/password-generator/](https://yazmin30-bot.github.io/password-generator/)
+[https://yazmin30-bot.github.io/code-quiz/index.html](https://yazmin30-bot.github.io/code-quiz/index.html)
 
 * The URL of the GitHub repository
 [https://github.com/Yazmin30-bot/code-quiz/](https://github.com/Yazmin30-bot/code-quiz/)
