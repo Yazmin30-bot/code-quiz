@@ -1,4 +1,7 @@
-# <Code Quiz>
+# Code Quiz
+**Displays a timed coding quiz with multiple-choice questions.**
+\
+&nbsp;
 ## Description
 At some point in your journey to become a full-stack web developer, you’ll likely be asked to complete a coding assessment&mdash;perhaps as part of an interview process. A typical coding assessment includes both multiple-choice questions and interactive coding challenges. 
 
@@ -27,6 +30,12 @@ The following animation demonstrates the application functionality:
 
 ![A user clicks through an interactive coding quiz, then enters initials to save the high score before resetting and starting over.](./Assets/images/Coding-Quiz.gif)
 
+## Build with 
+* [Javascript](https://www.javascript.com/) - `Javascript`
+* [CSS](https://www.w3schools.com/css/) - `CSS`
+\
+&nbsp;
+
 ## Links
 * The URL of the deployed application.
 [https://yazmin30-bot.github.io/code-quiz/index.html](https://yazmin30-bot.github.io/code-quiz/index.html)
@@ -34,7 +43,8 @@ The following animation demonstrates the application functionality:
 * The URL of the GitHub repository
 [https://github.com/Yazmin30-bot/code-quiz/](https://github.com/Yazmin30-bot/code-quiz/)
 
-
+## Authors 
+* **`Yazmin Tinoco`**   - [Yazmin30-bot](https://github.com/Yazmin30-bot/)
 ---
 permalink: /index.html
 ---
